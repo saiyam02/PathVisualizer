@@ -41,9 +41,9 @@ export default function NavBar(props) {
                       <li className="dropdown-item" onClick={()=>setAlgo("DFS")}      > DFS </li>
                     </ul>
                   </li>
-                  <button className='btn-success fw-bold me-3' disabled={algo==='' || props.visualizing} onClick={handleClick} >{algo?`Start Visualizing ${algo}`:"Select an algorithm to Start"}</button>
+                  <button className='btn-success fw-bold mx-3' disabled={algo==='' || props.visualizing} onClick={handleClick} >{algo?`Start Visualizing ${algo}`:"Select an algorithm to Start"}</button>
                   <li className="nav-item dropdown">
-                    <a className="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a className="nav-link dropdown-toggle mx-3" href="/" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Select Maze Algorithm
                     </a>
                     <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
