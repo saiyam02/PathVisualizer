@@ -1,12 +1,15 @@
-.legend-container{
-    height: 40px;
-    margin-right: 20px;
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*="label"] {
+        font-size: 10px;
+    }
   }
 
 .icon{
-    width: 40px;
-    height: 40px;
-  }
+    display: inline-block;
+    height:30px;
+    width:30px;
+}
  
 .label{
     font-size: 20px;
@@ -14,10 +17,10 @@
 }
 
 .start{
-    font-size: 30px;
+    font-size: 20px;
 }
 .end{
-    font-size: 30px;
+    font-size: 20px;
     color: red;
 }
 
@@ -28,33 +31,28 @@
     border-color: rgba(44, 43, 43, 0.354);
     border-style: solid;  
     border-width: 1px;
-    margin-right: 10px;
 }
 
 .new-visit{
     height: 30px;
     width: 30px;
     background: rgb(19, 125, 230);
-    margin-right: 10px;
 } 
 
 .visited{
     height: 30px;
     width: 30px;
     background: rgb(255, 6, 6);
-    margin-right: 10px;
 }
 
 .wall{
     height: 30px;
     width: 30px;
     background: url('./Images/Brick.png');
-    margin-right: 10px;
 }
 
 .path{
     height: 30px;
     width: 30px;
     background: #525252;
-    margin-right: 10px;
 }

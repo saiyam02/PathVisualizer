@@ -24,8 +24,8 @@ export default function PathVisual(props) {
   useEffect( ()=>{
     const width = window.innerWidth;
     const height = window.innerHeight;
-    const totRows = Math.max(Math.floor(height/40),10);
-    const totCols = Math.floor(width/30);
+    const totRows = Math.max(Math.floor(height/45),10);
+    const totCols = Math.floor(width/35);
     const startCell = {
         row: Math.floor(totRows/2),
         col: Math.floor(totCols/2)
@@ -429,7 +429,7 @@ const handleMaze = (maze)=>{
         <div className="d-flex justify-content-end" style={{height: "50px"}}>
           <Alert key={alertText.text} alertText={alertText.text} type={alertText.type}/>
         </div>
-        <div className="container" style={{marginBottom: "40px"}}>
+        <div className= "container" style={{marginBottom: "10px"}}>
             <Legend/>
         </div>
         <Grid 
