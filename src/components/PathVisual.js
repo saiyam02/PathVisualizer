@@ -150,7 +150,7 @@ export default function PathVisual(props) {
       const cell = newGrid[row][col];
       const newCell = {
           ...cell,
-          isWall: true
+          isWall: !cell.isWall
       };
       newGrid[row][col] = newCell;
       return newGrid;
