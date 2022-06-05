@@ -32,7 +32,7 @@ export default function NavBar(props) {
               <div className="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                   <li className="nav-item dropdown">
-                    <a className="nav-link dropdown-toggle mx-3" href="/" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a className="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Select Algorithm
                     </a>
                     <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
@@ -41,9 +41,9 @@ export default function NavBar(props) {
                       <li className="dropdown-item" onClick={()=>setAlgo("DFS")}      > DFS </li>
                     </ul>
                   </li>
-                  <button className='btn-success mx-3 fw-bold' disabled={algo==='' || props.visualizing} onClick={handleClick} >{algo?`Start Visualizing ${algo}`:"Select an algorithm to Start"}</button>
+                  <button className='btn-success fw-bold me-3' disabled={algo==='' || props.visualizing} onClick={handleClick} >{algo?`Start Visualizing ${algo}`:"Select an algorithm to Start"}</button>
                   <li className="nav-item dropdown">
-                    <a className="nav-link dropdown-toggle mx-3" href="/" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a className="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Select Maze Algorithm
                     </a>
                     <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
@@ -53,11 +53,13 @@ export default function NavBar(props) {
                   </li>
                   <button className='btn-primary' disabled={props.visualizing} onClick={()=>props.onMazeCreate(maze)}>Add Maze</button>
                 </ul>
-                <label htmlFor="customRange1" className="form-label text-white mx-3 my-2" >Control Speed</label>
-                <input type="range" className="form-range" id="customRange1" min="3" max="100" disabled={algo===''|| props.visualizing} style={{width: "100px"}}></input>
+                <div class="d-flex flex-column">
+                <label htmlFor="customRange1" className="form-label text-white mx-3" >Control Speed</label>
+                <input type="range" className="form-range mx-3" id="customRange1" min="3" max="100" disabled={algo===''|| props.visualizing} style={{width: "100px"}}></input>
+                </div>
                 <div className="d-flex">
-                <div className="conatiner mx-3"> <button className="btn btn-outline-danger" disabled={props.visualizing} onClick={()=>props.onRemoveWalls()} > Remove Walls </button> </div>
-                <div className="conatiner mx-3"> <button className="btn btn-outline-danger" disabled={props.visualizing} onClick={()=>props.onClearAll()} > Clear Board</button> </div>
+                <div className="conatiner mx-2"> <button className="btn btn-outline-danger" style={{fontSize: "14px"}} disabled={props.visualizing} onClick={()=>props.onRemoveWalls()} > Remove Walls </button> </div>
+                <div className="conatiner mx-2"> <button className="btn btn-outline-danger" style={{fontSize: "14px"}} disabled={props.visualizing} onClick={()=>props.onClearAll()} > Clear Board</button> </div>
                 </div>
               </div>
             </div>
