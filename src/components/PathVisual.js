@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import NavBar from './NavBar'
+import NavBar from './NavBar';
+import Legend from './Legend';
 import Grid from './Grid';
 import {Dijkstra,getCellsofShortestPath} from './algorithms/Dijkstra';
 import {BFS} from './algorithms/BFS';
@@ -23,7 +24,7 @@ export default function PathVisual(props) {
   useEffect( ()=>{
     const width = window.innerWidth;
     const height = window.innerHeight;
-    const totRows = Math.max(Math.floor(height/40),10)+3;
+    const totRows = Math.max(Math.floor(height/40),10);
     const totCols = Math.floor(width/30);
     const startCell = {
         row: Math.floor(totRows/2),
@@ -425,8 +426,11 @@ const handleMaze = (maze)=>{
                 onClearAll={clearAll}
                 notClearWall={notClearWall}
         />
-        <div className="d-flex justify-content-end" style={{height: "70px"}}>
+        <div className="d-flex justify-content-end" style={{height: "50px"}}>
           <Alert key={alertText.text} alertText={alertText.text} type={alertText.type}/>
+        </div>
+        <div className="container" style={{marginBottom: "40px"}}>
+            <Legend/>
         </div>
         <Grid 
             key={grid}

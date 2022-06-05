@@ -1,0 +1,60 @@
+.legend-container{
+    height: 40px;
+    margin-right: 20px;
+  }
+
+.icon{
+    width: 40px;
+    height: 40px;
+  }
+ 
+.label{
+    font-size: 20px;
+    font-family:sans-serif;
+}
+
+.start{
+    font-size: 30px;
+}
+.end{
+    font-size: 30px;
+    color: red;
+}
+
+.not-visited{
+    height: 30px;
+    width: 30px;
+    background: white;
+    border-color: rgba(44, 43, 43, 0.354);
+    border-style: solid;  
+    border-width: 1px;
+    margin-right: 10px;
+}
+
+.new-visit{
+    height: 30px;
+    width: 30px;
+    background: rgb(19, 125, 230);
+    margin-right: 10px;
+} 
+
+.visited{
+    height: 30px;
+    width: 30px;
+    background: rgb(255, 6, 6);
+    margin-right: 10px;
+}
+
+.wall{
+    height: 30px;
+    width: 30px;
+    background: url('./Images/Brick.png');
+    margin-right: 10px;
+}
+
+.path{
+    height: 30px;
+    width: 30px;
+    background: #525252;
+    margin-right: 10px;
+}

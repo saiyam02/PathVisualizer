@@ -53,13 +53,13 @@ export default function NavBar(props) {
                   </li>
                   <button className='btn-primary' disabled={props.visualizing} onClick={()=>props.onMazeCreate(maze)}>Add Maze</button>
                 </ul>
-                <div class="d-flex flex-column">
+                <div className="d-flex flex-column">
                 <label htmlFor="customRange1" className="form-label text-white mx-3" >Control Speed</label>
                 <input type="range" className="form-range mx-3" id="customRange1" min="3" max="100" disabled={algo===''|| props.visualizing} style={{width: "100px"}}></input>
                 </div>
                 <div className="d-flex">
                 <div className="conatiner mx-2"> <button className="btn btn-outline-danger" style={{fontSize: "14px"}} disabled={props.visualizing} onClick={()=>props.onRemoveWalls()} > Remove Walls </button> </div>
-                <div className="conatiner mx-2"> <button className="btn btn-outline-danger" style={{fontSize: "14px"}} disabled={props.visualizing} onClick={()=>props.onClearAll()} > Clear Board</button> </div>
+                <div className="conatiner mx-2"> <button className="btn btn-outline-danger" style={{fontSize: "14px"}} disabled={props.visualizing} onClick={()=>props.onClearAll()} > Clear Grid</button> </div>
                 </div>
               </div>
             </div>
