@@ -53,11 +53,11 @@ export default function NavBar(props) {
                   </li>
                   <button className='btn-primary' disabled={props.visualizing} onClick={()=>props.onMazeCreate(maze)}>Add Maze</button>
                 </ul>
-                <label for="customRange1" class="form-label text-white mx-3 my-2" >Control Speed</label>
-                <input type="range" class="form-range" id="customRange1" min="3" max="100" disabled={algo===''|| props.visualizing} style={{width: "100px"}}></input>
-                <div class="d-flex">
-                <div className="conatiner mx-3"> <button class="btn btn-outline-danger" disabled={props.visualizing} onClick={()=>props.onRemoveWalls()} > Remove Walls </button> </div>
-                <div className="conatiner mx-3"> <button class="btn btn-outline-danger" disabled={props.visualizing} onClick={()=>props.onClearAll()} > Clear Board</button> </div>
+                <label htmlFor="customRange1" className="form-label text-white mx-3 my-2" >Control Speed</label>
+                <input type="range" className="form-range" id="customRange1" min="3" max="100" disabled={algo===''|| props.visualizing} style={{width: "100px"}}></input>
+                <div className="d-flex">
+                <div className="conatiner mx-3"> <button className="btn btn-outline-danger" disabled={props.visualizing} onClick={()=>props.onRemoveWalls()} > Remove Walls </button> </div>
+                <div className="conatiner mx-3"> <button className="btn btn-outline-danger" disabled={props.visualizing} onClick={()=>props.onClearAll()} > Clear Board</button> </div>
                 </div>
               </div>
             </div>

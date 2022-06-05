@@ -14,7 +14,7 @@
 }
 
 .wall-cell{
-    background: url(./Brick.png);
+    background: url(./Images/Brick.png);
     animation: puffInWall 1s 1;
 }
 
@@ -38,7 +38,7 @@
 }
 
 .end-cell{
-    font-size: 24px;
+  font-size: 24px;
     color:red;   
 }
 

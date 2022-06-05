@@ -3,11 +3,13 @@ import './cell.css'
 
 
 export default function Cell(props) {
-
+  
+  // eslint-disable-next-line
   const[row,setRow]=useState(props.cell.row);
+  // eslint-disable-next-line
   const[col,setCol]=useState(props.cell.col);
 
-  const addClass= ()=>{  
+  const addClassName= ()=>{  
     if(props.cell.isWall)
         return "wall-cell ";
     if( props.cell.isStartCell)
@@ -23,7 +25,7 @@ export default function Cell(props) {
   return (
     <div
       id = {`cell-${row}-${col}`}
-      className={`cell ${addClass()}`}
+      className={`cell ${addClassName()}`}
       onMouseDown={() => props.onMouseDown(row,col)}
       onMouseEnter={() => props.onMouseEnter(row,col)}
       onMouseUp={() => props.onMouseUp(row,col)}>
