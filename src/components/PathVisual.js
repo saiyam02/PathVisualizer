@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import NavBar from './NavBar';
 import Legend from './Legend';
 import Grid from './Grid';
+import Info from './Info';
 import {Dijkstra,getCellsofShortestPath} from './algorithms/Dijkstra';
 import {BFS} from './algorithms/BFS';
 import {DFS} from './algorithms/DFS';
@@ -222,12 +223,9 @@ const removeWalls = ()=>{
                 ...cell,
                 isWall: false,
                 distance:Infinity,
-                visitedCell: false,
-                isVisited:false,
-                ispathCell:false,
                 previousCell:null
           }
-          if(!(cell.isStartCell || cell.isEndCell))
+          if(!(cell.isStartCell || cell.isEndCell || cell.isVisited || cell.ispathCell))
           document.getElementById(`cell-${i}-${j}`).className="cell";
           newGrid[i][j]=newCell;
         }
@@ -340,7 +338,7 @@ const visualizeAlgo = async  (visitedCells,cellsOfShortestPath,speed,success) =>
          cell.visitedCell=true;
          document.getElementById(`cell-${cell.row}-${cell.col}`).className ='cell visited-cell';
         }
-        const time=500/speed;
+        const time=1000/speed;
         await rest(time);
 }
 }       
@@ -426,20 +424,21 @@ const handleMaze = (maze)=>{
                 onClearAll={clearAll}
                 notClearWall={notClearWall}
         />
-        <div className="d-flex justify-content-end" style={{height: "50px"}}>
+        <div className="d-flex justify-content-end" style={{height: "2vw"}}>
           <Alert key={alertText.text} alertText={alertText.text} type={alertText.type}/>
         </div>
         <div className= "container" style={{marginBottom: "10px"}}>
             <Legend/>
         </div>
-        <Grid 
+        <Grid
             key={grid}
             grid={grid}
             onMouseDown={handleMouseDown}
             onMouseEnter={handleMouseEnter}
             onMouseUp={handleMouseUp}
           />
-    </div>
+          <Info/>
+          </div>
   )
 }
 
@@ -469,4 +468,7 @@ const createCell = (row,col)=>{
       previousCell:null
   };
 }
+
+
+
 

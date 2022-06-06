@@ -1,6 +1,6 @@
 import React from 'react'
 import Cell from './Cell';
-import './cell.css'
+import './styles/cell.css'
 
 export default function Grid(props) {
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './cell.css'
+import './styles/cell.css'
 
 
 export default function Cell(props) {
