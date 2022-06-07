@@ -9,7 +9,7 @@ export default function Info() {
   <>
     <div className='info-container'>
         <a href="/" role="button" data-bs-toggle="modal" data-bs-target="#firstModal">
-          <div style={{marginRight: "2%", position: "absolute",right: "0"}}>
+          <div style={{marginRight: "5vw",marginTop:"3vh", position: "absolute",right: "0"}}>
             <div className='fas fa-info-circle animate-info' style={{fontSize: "34px", color: "black"}}></div>
           </div>
         </a>

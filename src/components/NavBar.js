@@ -37,6 +37,7 @@ export default function NavBar(props) {
                       <li className="dropdown-item " onClick={()=>setAlgo("Dijkstra")} >Dijkstra</li>
                       <li className="dropdown-item" onClick={()=>setAlgo("BFS")}      > BFS </li>
                       <li className="dropdown-item" onClick={()=>setAlgo("DFS")}      > DFS </li>
+                      <li className="dropdown-item" onClick={()=>setAlgo("Greedy")}   > GreedyBFS</li>
                     </ul>
                   </li>
                   <button className='btn btn-grad mx-2' style={{fontSize: "1vw"}} disabled={algo==='' || props.visualizing} onClick={handleClick} >{algo?`Start Visualizing ${algo}`:"Select an algorithm to Start"}</button>

@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import NavBar from './NavBar';
 import Legend from './Legend';
 import Grid from './Grid';
+import Stats from './Stats';
 import Info from './Info';
 import {Dijkstra,getCellsofShortestPath} from './algorithms/Dijkstra';
 import {BFS} from './algorithms/BFS';
 import {DFS} from './algorithms/DFS';
+import { GreedyBFS} from './algorithms/GreedyBFS';
 import Alert from './Alert';
 import { randomMaze } from './algorithms/mazeGenerators/RandomMaze';
 import { recursiveMaze } from './algorithms/mazeGenerators/RecursiveMaze';
@@ -21,6 +23,8 @@ export default function PathVisual(props) {
   const [visualizeClicked,setVisualizeClicked]=useState(false);
   const [visualizing,setVisualizing]=useState(false);
   const [alertText,setAlert]=useState({text: "",type: ""});
+  const [visitedCount,setVisitedCount]=useState(0);
+  const [pathCount,setPathCount]=useState(0);
   
   useEffect( ()=>{
     const width = window.innerWidth;
@@ -58,7 +62,7 @@ export default function PathVisual(props) {
           if(visualizing)
           setAlert({text:"Please wait, still finding path...",type:"warning"});
           else 
-          setAlert({text:"Clear Board First !!",type:"primary"});
+          setAlert({text:"Clear Grid First !!",type:"primary"});
           return;
         }
         if(row===startCell.row && col===startCell.col)
@@ -235,6 +239,8 @@ const removeWalls = ()=>{
 }
 
 const clearAll = ()=>{
+  setVisitedCount(0);
+  setPathCount(0);
   const newGrid = grid.slice();
   for(let i = 0;i < totRows ; i++){
       for( let j = 0;j < totCols; j++){
@@ -250,6 +256,10 @@ const clearAll = ()=>{
           }
           if(!(cell.isStartCell || cell.isEndCell))
           document.getElementById(`cell-${i}-${j}`).className="cell";
+          else if(cell.isStartCell)
+          document.getElementById(`cell-${i}-${j}`).className="cell start-cell fas fa-male";
+          else if(cell.isEndCell)
+          document.getElementById(`cell-${i}-${j}`).className="cell end-cell fas fa-map-marker-alt";
           newGrid[i][j]=newCell;
         }
         setVisualizeClicked(false);
@@ -259,6 +269,8 @@ const clearAll = ()=>{
 }
 
 const notClearWall = ()=>{
+  setVisitedCount(0);
+  setPathCount(0);
   const newGrid = grid.slice();
   for(let i = 0;i < totRows ; i++){
       for( let j = 0;j < totCols; j++){
@@ -271,6 +283,10 @@ const notClearWall = ()=>{
                 ispathCell:false,
                 previousCell:null
           }
+          if(cell.isStartCell)
+          document.getElementById(`cell-${i}-${j}`).className="cell start-cell fas fa-male";
+          else if(cell.isEndCell)
+          document.getElementById(`cell-${i}-${j}`).className="cell end-cell fas fa-map-marker-alt"
           newGrid[i][j]=newCell;
         }
         setVisualizeClicked(false);
@@ -281,45 +297,54 @@ const notClearWall = ()=>{
 
 const visualize = (Algo,speed)=>{
   setAlert({text:"",type:""})
-  console.log(speed);
   let result; // store visitedcells and successVal returned by algo
   let visitedCells;
   let cellsOfShortestPath;
+  let count;
   const startCellofGrid = grid[startCell.row][startCell.col];
   const endCellofGrid = grid[endCell.row][endCell.col];
   switch(Algo)
   {
     case 'Dijkstra':
       result = Dijkstra(grid,startCellofGrid,endCellofGrid);
+      count=-1;
       break;
     case 'BFS' :
       result=BFS(grid,startCellofGrid,endCellofGrid);
+      count=-2;
+      break;
+    case 'Greedy':
+      result=GreedyBFS(grid,startCellofGrid,endCellofGrid);
+      count=(result.success?0:-1);
       break;
     case 'DFS' :
       result=DFS(grid,startCellofGrid,endCellofGrid);
-      if(!result.success){
-        setAlert({text:"No Path Possible,Rearrange Obstacles",type:"danger"});
-        setVisualizing(false);
-        return;
-      }
-      break;  
-    default: return  
+      count=-2;
+        if(!result.success){
+          setAlert({text:"No Path Possible,Rearrange Obstacles",type:"danger"});
+          setVisualizing(false);
+          return;     
+        }
+        break;  
+     default: return  
   }
   visitedCells=result.visitedCells;
   let success =result.success;
   cellsOfShortestPath = getCellsofShortestPath(endCellofGrid);
-  visualizeAlgo(visitedCells,cellsOfShortestPath,speed,success);
+  visualizeAlgo(visitedCells,cellsOfShortestPath,speed,success,count);
 }
 
-const visualizeAlgo = async  (visitedCells,cellsOfShortestPath,speed,success) =>{
+const visualizeAlgo = async  (visitedCells,cellsOfShortestPath,speed,success,count) =>{
   for (let i = 0; i <= visitedCells.length; i++) {
+    count=count+1;
+    setVisitedCount(count);
     if (i === visitedCells.length) {
       if(!success) 
             { 
              setAlert({text:"No Path Found ", type:"danger"});
              setVisualizing(false);
             }
-            document.getElementById(`cell-${endCell.row}-${endCell.col}`).className ='cell end-cell fas fa-map-marker-alt';
+            document.getElementById(`cell-${endCell.row}-${endCell.col}`).className ='cell end-cell fas fa-map-marker-alt again-visited-cell';
             const time=5000/speed;
             await rest(time);
             await animateShortestPath(cellsOfShortestPath,speed);
@@ -328,9 +353,9 @@ const visualizeAlgo = async  (visitedCells,cellsOfShortestPath,speed,success) =>
     }
         const cell = visitedCells[i];
         if(cell.row===startCell.row && cell.col===startCell.col)
-        document.getElementById(`cell-${cell.row}-${cell.col}`).className ='cell start-cell fas fa-male';
+        document.getElementById(`cell-${cell.row}-${cell.col}`).className ='cell start-cell fas fa-male visited-cell';
         else if(cell.row===endCell.row && cell.col===endCell.col)
-          document.getElementById(`cell-${cell.row}-${cell.col}`).className ='cell end-cell fas fa-map-marker-alt';
+          document.getElementById(`cell-${cell.row}-${cell.col}`).className ='cell end-cell fas fa-map-marker-alt visited-cell';
         else if(cell.visitedCell){
           document.getElementById(`cell-${cell.row}-${cell.col}`).className = 'cell again-visited-cell'
         }
@@ -346,11 +371,15 @@ const visualizeAlgo = async  (visitedCells,cellsOfShortestPath,speed,success) =>
 const animateShortestPath = async (cellsOfShortestPath,speed)=>{
   const Grid = grid;
   const newGrid = Grid.slice();
+  let count=0;
   for (let i = 1; i < cellsOfShortestPath.length; i++) {
+          count+=1;
+          setPathCount(count);
           const cell = cellsOfShortestPath[i];
           const newCell = {...newGrid[cell.row][cell.col],ispathCell:true};
           newGrid[cell.row][cell.col] = newCell;
           if( i === cellsOfShortestPath.length-1 ){
+              document.getElementById(`cell-${endCell.row}-${endCell.col}`).className ='cell end-cell fas fa-map-marker-alt shortest-path-cell ';
               setGrid(newGrid);
               return;
           }
@@ -437,7 +466,13 @@ const handleMaze = (maze)=>{
             onMouseEnter={handleMouseEnter}
             onMouseUp={handleMouseUp}
           />
+          <div className="d-flex">
+          <Stats 
+            key={visitedCount}
+            visitedCount={visitedCount}
+            pathCount={pathCount}/>
           <Info/>
+          </div>
           </div>
   )
 }

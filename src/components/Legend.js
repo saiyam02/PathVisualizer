@@ -8,15 +8,15 @@ export default function Legend() {
          <div className="row">
             <div className="col legend-container ">
             <div className="icon start fas fa-male me-2 "></div> 
-            <div className='label col '>Start Point</div>
+            <div className='label col '>Start Node</div>
             </div>
             <div className="col legend-container ">
             <div className="icon  end fas fa-map-marker-alt"></div> 
-            <div className='label col '>End Point</div>    
+            <div className='label col '>End Node</div>    
             </div>
             <div className="col legend-container ">
             <div className="icon not-visited"></div> 
-             <div className='label col'>Not Visited</div>
+             <div className='label col'> Unvisited</div>
             </div>
             <div className="col legend-container ">
             <div className="icon wall"></div> 
@@ -32,7 +32,7 @@ export default function Legend() {
             </div>
             <div className="col legend-container ">
             <div className="icon path"></div> 
-            <div className='label col '>Shortest Path</div> 
+            <div className='label col '>Path</div> 
             </div>
         </div>
     </div>
