@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/PathVisualizer/static/css/main.9932a312.css",
-    "main.js": "/PathVisualizer/static/js/main.f9a7aa74.js",
+    "main.css": "/PathVisualizer/static/css/main.675fd9c0.css",
+    "main.js": "/PathVisualizer/static/js/main.27ee7c29.js",
     "static/js/787.28cb0dcd.chunk.js": "/PathVisualizer/static/js/787.28cb0dcd.chunk.js",
     "static/media/StartEndWall.gif": "/PathVisualizer/static/media/StartEndWall.3a776bc04f986df92889.gif",
     "static/media/mazeAdd.gif": "/PathVisualizer/static/media/mazeAdd.51516068981daa6ba1c3.gif",
     "static/media/visualize.gif": "/PathVisualizer/static/media/visualize.d31c1c298bb3bf055bc5.gif",
     "index.html": "/PathVisualizer/index.html",
-    "main.9932a312.css.map": "/PathVisualizer/static/css/main.9932a312.css.map",
-    "main.f9a7aa74.js.map": "/PathVisualizer/static/js/main.f9a7aa74.js.map",
+    "main.675fd9c0.css.map": "/PathVisualizer/static/css/main.675fd9c0.css.map",
+    "main.27ee7c29.js.map": "/PathVisualizer/static/js/main.27ee7c29.js.map",
     "787.28cb0dcd.chunk.js.map": "/PathVisualizer/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9932a312.css",
-    "static/js/main.f9a7aa74.js"
+    "static/css/main.675fd9c0.css",
+    "static/js/main.27ee7c29.js"
   ]
 }
