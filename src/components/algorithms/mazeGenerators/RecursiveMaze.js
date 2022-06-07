@@ -29,7 +29,6 @@ export function recursiveMaze(rows,cols){
         });
    }
    getMazeCells(mazeCells,1,rows-2,1,cols-2);
-   console.log(mazeCells);
    return mazeCells;
 }
 
@@ -48,7 +47,6 @@ function getMazeCells(mazeCells,startRow,endRow,startCol,endCol){
 function recursiveMazeVertical(mazeCells,startRow,endRow,startCol,endCol){
     let mid = Math.floor((endCol+startCol)/2);
     let random = Math.floor(Math.random() * (endRow-startRow+1)) + startRow;
-    //console.log( "row ",random," ",startRow," ",endRow );
     let start = startRow;
     if(!(mazeCells.some(el=>el.row===startRow-1 && el.col===mid))){
         random = start;
@@ -74,7 +72,6 @@ function recursiveMazeVertical(mazeCells,startRow,endRow,startCol,endCol){
 
 function recursiveMazeHorizontal(mazeCells,startRow,endRow,startCol,endCol){
     let mid = Math.floor((endRow+startRow)/2);
-  //  console.log("mid: ",mid);
     let random = Math.floor(Math.random() * (endCol-startCol+1)) + startCol;
     let start = startCol;
     if( !(mazeCells.some(el=>el.row===mid && el.col===startCol-1)) ){

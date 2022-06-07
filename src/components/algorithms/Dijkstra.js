@@ -61,7 +61,6 @@ export function getCellsofShortestPath(endCellofGrid) {
       cellsOfShortestPath.unshift(currentCell);
       currentCell = currentCell.previousCell;
     }
-    console.log(endCellofGrid);
     return cellsOfShortestPath;
   }
   

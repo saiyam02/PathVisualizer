@@ -50,11 +50,6 @@ export default function PathVisual(props) {
     setEndCell(endCell);
   }
   ,[props])
-  
-// const showAlert = (alertText,type) =>{
-//   setAlert(<div className={`alert alert-${type}`} style={{width: "40%"}} role="alert">
-//   <strong>{alertText}</strong> </div>)
-// }
 
   const handleMouseDown=(row,col)=>
       {
@@ -136,14 +131,12 @@ export default function PathVisual(props) {
             {
               const newGrid=oneStart(grid,row,col);
               setGrid(newGrid);
-              console.log(startCell);
             }
             break;
           case 'end':
             {
               const newGrid=oneEnd(grid,row,col);
               setGrid(newGrid);
-              console.log(endCell);
             }
             break;
           default:
@@ -153,7 +146,6 @@ export default function PathVisual(props) {
       }
   
 const onClickCell=(row,col)=>{
-  console.log(`clicked ${row} , ${col}`);
   if(visualizeClicked) 
     {
       if(visualizing)
@@ -313,7 +305,7 @@ const notClearWall = ()=>{
 
 const visualize = (Algo,speed)=>{
   setAlert({text:"",type:""})
-  let result; // store visitedcells and successVal returned by algo
+  let result;
   let visitedCells;
   let cellsOfShortestPath;
   let count;
@@ -334,7 +326,6 @@ const visualize = (Algo,speed)=>{
       count=(result.success?0:-1);
       break;
     case 'AStar':
-      console.log("in astar switch")
       result=AStar(grid,startCellofGrid,endCellofGrid);
       count=-1;
       break;
@@ -426,10 +417,6 @@ const animateMaze = async (mazeCells)=>{
   grid[endCell.row][endCell.col-1].isWall=false;
   document.getElementById(`cell-${startCell.row}-${startCell.col+1}`).className="cell";
   document.getElementById(`cell-${endCell.row}-${endCell.col-1}`).className="cell";
-  // let noMazeCells=document.getElementsByClassName("cell");
-  // for(let i=0;i<noMazeCells.length;i++) {
-  //   noMazeCells[i].style.borderStyle="none";
-  // }
 }
 
 const rest = (time) =>{
@@ -438,10 +425,9 @@ const rest = (time) =>{
 
 
 const handleVisualize = (Algo,speed)=>{
-    console.log(speed);
     setVisualizeClicked(true);
     setVisualizing(true);
-    visualize(Algo,speed);// start from here making vizualize function
+    visualize(Algo,speed);
 }
 
 const handleMaze = (maze)=>{
@@ -452,11 +438,9 @@ const handleMaze = (maze)=>{
       mazeCells=randomMaze(totRows,totCols);
     break;
     case "recursiveMaze":
-      console.log("maze called");
       mazeCells=recursiveMaze(totRows,totCols);
     break;
     case "Maze 3":
-    console.log("maze 3");
     break;    
     default : return;
   }

@@ -5,7 +5,6 @@ export function AStar(grid,startCellofGrid,endCellofGrid){
     let currentCell = startCellofGrid; // storing f value as distance
     sortedFvalue.push(startCellofGrid);
     while(sortedFvalue.length){
-        console.log("in loop");
         currentCell = sortedFvalue.shift();
         visitedCells.push(currentCell);
         currentCell.isVisited=true;

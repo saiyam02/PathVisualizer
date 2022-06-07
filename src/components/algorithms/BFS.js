@@ -1,5 +1,4 @@
 export function BFS(grid,startCellofGrid,endCellofGrid){
-    //const algo ="bfs";
     var q = [];
     const visitedCells = [];
     visitedCells.push(startCellofGrid);

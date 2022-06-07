@@ -3,18 +3,25 @@ https://saiyam02.github.io/PathVisualizer
 
 # Overview of Algorithms used 
 
-Dijkstra -  Uses a formal approach (no heuristic). It gaurantees the shortest path, but is slower than Greedy BFS.
+## Dijkstra  
+Uses a formal approach (no heuristic). It gaurantees the shortest path, but is slower than Greedy BFS.
 
-Greedy BFS (Best First Search) - Always selects the path that appears best at that moment.
-             It combines the power of BFS and DFS along with a heuristic approach.
-             Much faster than Dijkstra but does not always gaurantee shortest path.
-A* (A-Star) -One of the most successful path finding algorithm.As fast as Greedy BFS and as good as Dijkstra.
-             It combines the heuristic approach of greedy BFS and formal approach of Dijkstra. It gaurantees the shortest path.
-DFS (Depth First Search) - An Unweighted algorithm.Perhaps the simplest algorithm, but certainly a poor choice for Path finding.
-      It does not always gaurentee shoetest path.
+## Greedy BFS (Best First Search) 
+ Always selects the path that appears best at that moment.
+It combines the power of BFS and DFS along with a heuristic approach.
+Much faster than Dijkstra but does not always gaurantee shortest path.
 
-BFS (Breadth First Search) - An Unweighted algorithm. In conrast to Dijkstra, which uses a priority queue, it uses a simple queue.
-      It gaurantees shoetest path. 
+## A* (A-Star) 
+One of the most successful path finding algorithm.As fast as Greedy BFS and as good as Dijkstra.             It combines the heuristic approach of greedy BFS and formal approach of Dijkstra. 
+It gaurantees the shortest path.
+
+## DFS (Depth First Search)
+An Unweighted algorithm.Perhaps the simplest algorithm, but certainly a poor choice for Path finding.
+It does not always gaurentee shoetest path.
+
+## BFS (Breadth First Search) 
+An Unweighted algorithm. In conrast to Dijkstra, which uses a priority queue, it uses a simple queue.
+It gaurantees shoetest path. 
 
 # Getting Started with Create React App
 
