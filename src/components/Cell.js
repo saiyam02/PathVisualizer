@@ -28,7 +28,8 @@ export default function Cell(props) {
       className={`cell ${addClassName()}`}
       onMouseDown={() => props.onMouseDown(row,col)}
       onMouseEnter={() => props.onMouseEnter(row,col)}
-      onMouseUp={() => props.onMouseUp(row,col)}>
+      onMouseUp={() => props.onMouseUp(row,col)}
+      onClick={()=>props.onClickCell(row,col)}>
     </div>
   )
 }

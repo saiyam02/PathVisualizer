@@ -17,6 +17,7 @@ export default function Grid(props) {
                                         onMouseDown = {props.onMouseDown}
                                         onMouseEnter = {props.onMouseEnter}
                                         onMouseUp = {props.onMouseUp}
+                                        onClickCell = {props.onClickCell}
                                     />
                                 );
                             })}

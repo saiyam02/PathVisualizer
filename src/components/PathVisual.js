@@ -152,6 +152,21 @@ export default function PathVisual(props) {
         setMousePressed('');     
       }
   
+const onClickCell=(row,col)=>{
+  console.log(`clicked ${row} , ${col}`);
+  if(visualizeClicked) 
+    {
+      if(visualizing)
+        setAlert({text:"Please wait, still finding path...",type:"warning"});
+      else 
+        setAlert({text:"Clear Grid First !!",type:"primary"});
+      return;
+        }
+  if(grid[row][col].isStartCell || grid[row][col].isEndCell) return;
+  const newGrid=getWalledGrid(grid,row,col);
+  setGrid(newGrid);
+}
+
   const getWalledGrid = (grid,row,col)=>{ 
       const newGrid = grid.slice();
       const cell = newGrid[row][col];
@@ -471,6 +486,7 @@ const handleMaze = (maze)=>{
             onMouseDown={handleMouseDown}
             onMouseEnter={handleMouseEnter}
             onMouseUp={handleMouseUp}
+            onClickCell={onClickCell}
           />
           <div className="d-flex">
           <Stats 

@@ -89,18 +89,30 @@ useEffect (()=>{
       </div>
     </div>
     <div className="modal fade "  id="fourthModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div className="modal-dialog">
+      <div className="modal-dialog ">
         <div className="modal-content" id="modalContent">
           <div className="modal-header">
             <h5 className="modal-title text-white fw-bold" id="exampleModalLabel">Overview of algorithms used</h5>
             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div className="modal-body" style={{fontSize: "1.1vw"}} >
-          <p style={{textAlign: "left",color: "white",fontSize: "1.3vw" }} >Dijkstra (Weighted)</p>
-          <i style={{fontSize: "20px", color:"white"}} className='fas'>&#xf0a4;</i> Select the desired path finding algorithm and click the "Visualize Algorithm" button.
-          <div className='visualizeGif'>
-          <img src={visualizeGif} alt ="Maze addition demo"></img>
-          </div>
+          <div className="modal-body" style={{fontSize: "1vw"}} >
+          <p className='info-subhead' >Dijkstra</p>
+          Uses a formal approach (without heuristic). 
+          It gaurantees the shortest path, but is slower than Greedy BFS.
+          <p className='info-subhead'>Greedy BFS (Best First Search)</p>
+          Always selects the path that appears best at that moment.
+          It combines the power of BFS and DFS along with a heuristic approach.
+          Much faster than Dijkstra but does not always gaurantee shortest path.
+          <p className='info-subhead' >A* (A-Star)</p>
+          One of the most successful path finding algorithm.As fast as Greedy BFS and as good as Dijkstra.
+          It combines the heuristic approach of greedy BFS and formal approach of Dijkstra. 
+          It gaurantees the shortest path.
+          <p className='info-subhead'>DFS (Depth First Search)</p>
+          An Unweighted algorithm.Perhaps the simplest algorithm, but certainly not a good choice for Path finding.
+          It does not always gaurentee shoetest path.
+          <p className='info-subhead' > BFS (Breadth First Search)</p>
+          An Unweighted algorithm. In conrast to Dijkstra, which uses a priority queue, it uses a simple queue.
+          It gaurantees shoetest path.
           </div>
           <div className="modal-footer">
           <button type="button" className="btn btn-light" data-bs-toggle="modal" data-bs-target="#thirdModal" data-bs-dismiss="modal">Previous</button>
