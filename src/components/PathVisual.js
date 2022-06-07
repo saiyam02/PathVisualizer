@@ -336,7 +336,7 @@ const visualize = (Algo,speed)=>{
     case 'AStar':
       console.log("in astar switch")
       result=AStar(grid,startCellofGrid,endCellofGrid);
-      count=(result.success?0:-1);
+      count=-1;
       break;
     case 'DFS' :
       result=DFS(grid,startCellofGrid,endCellofGrid);
