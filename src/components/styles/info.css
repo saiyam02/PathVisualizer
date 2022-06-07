@@ -3,22 +3,6 @@
     position: relative;
 }
 
-.animate-info{
-    animation: pulseInfo 2s 2;
-}
-
-@keyframes pulseInfo {
-	0% {
-		transform: scale(.7);
-	}
-    75% {
-        transform: scale(2);
-    }
-	100% {
-		transform: scale(1);
-	}
-}
-
 .animate-info:hover{
     transform: scale(1.3);
 }

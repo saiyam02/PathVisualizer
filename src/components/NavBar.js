@@ -35,9 +35,10 @@ export default function NavBar(props) {
                     </a>
                     <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                       <li className="dropdown-item " onClick={()=>setAlgo("Dijkstra")} >Dijkstra</li>
-                      <li className="dropdown-item" onClick={()=>setAlgo("BFS")}      > BFS </li>
-                      <li className="dropdown-item" onClick={()=>setAlgo("DFS")}      > DFS </li>
-                      <li className="dropdown-item" onClick={()=>setAlgo("Greedy")}   > GreedyBFS</li>
+                      <li className="dropdown-item" onClick={()=>setAlgo("Greedy")}   > Greedy-Best First Search</li>
+                      <li className="dropdown-item" onClick={()=>setAlgo("AStar")}   > A* (A Star)</li>
+                      <li className="dropdown-item" onClick={()=>setAlgo("BFS")}      > BFS (Breadth First Search) </li>
+                      <li className="dropdown-item" onClick={()=>setAlgo("DFS")}      > DFS (Depth First Search)</li>
                     </ul>
                   </li>
                   <button className='btn btn-grad mx-2' style={{fontSize: "1vw"}} disabled={algo==='' || props.visualizing} onClick={handleClick} >{algo?`Start Visualizing ${algo}`:"Select an algorithm to Start"}</button>

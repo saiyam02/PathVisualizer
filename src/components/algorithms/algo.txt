@@ -1,0 +1,5 @@
+greedy bfs - Always the path that appears best at that moment.
+             It combines the power of BFS and DFS along with a heuristic approach.
+             Much faster than Dijkstra but doesn't always gaurantee shortest path.
+
+Dijkstra - 

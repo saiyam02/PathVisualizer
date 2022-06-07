@@ -1,14 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./styles/info.css"
 import StartEndWall from './styles/Images/StartEndWall.gif'
 import mazeAdd from './styles/Images/mazeAdd.gif'
 import visualizeGif from './styles/Images/visualize.gif'
 
 export default function Info() {
+useEffect (()=>{
+  document.getElementById('info-btn').click();
+},[])
+
   return (
   <>
     <div className='info-container'>
-        <a href="/" role="button" data-bs-toggle="modal" data-bs-target="#firstModal">
+        <a href="/" role="button" id="info-btn" data-bs-toggle="modal" data-bs-target="#firstModal">
           <div style={{marginRight: "5vw",marginTop:"3vh", position: "absolute",right: "0"}}>
             <div className='fas fa-info-circle animate-info' style={{fontSize: "34px", color: "black"}}></div>
           </div>
@@ -88,11 +92,11 @@ export default function Info() {
       <div className="modal-dialog">
         <div className="modal-content" id="modalContent">
           <div className="modal-header">
-            <h5 className="modal-title text-white fw-bold" id="exampleModalLabel">Creating mazes and Speed control</h5>
+            <h5 className="modal-title text-white fw-bold" id="exampleModalLabel">Overview of algorithms used</h5>
             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div className="modal-body" style={{fontSize: "1.1vw"}} >
-          <p style={{textAlign: "left",color: "white",fontSize: "1.3vw" }} >To visualize shortest path</p>
+          <p style={{textAlign: "left",color: "white",fontSize: "1.3vw" }} >Dijkstra (Weighted)</p>
           <i style={{fontSize: "20px", color:"white"}} className='fas'>&#xf0a4;</i> Select the desired path finding algorithm and click the "Visualize Algorithm" button.
           <div className='visualizeGif'>
           <img src={visualizeGif} alt ="Maze addition demo"></img>

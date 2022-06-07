@@ -3,18 +3,15 @@ export function GreedyBFS(grid,startCellofGrid,endCellofGrid){
     const visitedCells=[];
     sortedHeuristic.push(startCellofGrid);
     while (sortedHeuristic.length){
-        console.log("in loop");
         let currentCell = sortedHeuristic.shift();
         visitedCells.push(currentCell);
         currentCell.isVisited=true;
         updateSortedHeuristic(grid,currentCell,endCellofGrid,sortedHeuristic); 
         if(sortedHeuristic.length===0){
-        console.log("from false");
         return {visitedCells: visitedCells, success: false};// will find neighbour, add to sorted heuristic nd sort
         }
         if(sortedHeuristic[0].distance===0)
         {
-            console.log("from true");
             return {visitedCells: visitedCells,success: true};
         }  
     }

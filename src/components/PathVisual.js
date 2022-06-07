@@ -11,6 +11,7 @@ import { GreedyBFS} from './algorithms/GreedyBFS';
 import Alert from './Alert';
 import { randomMaze } from './algorithms/mazeGenerators/RandomMaze';
 import { recursiveMaze } from './algorithms/mazeGenerators/RecursiveMaze';
+import { AStar } from './algorithms/AStar';
 
 export default function PathVisual(props) {
 
@@ -317,6 +318,11 @@ const visualize = (Algo,speed)=>{
       result=GreedyBFS(grid,startCellofGrid,endCellofGrid);
       count=(result.success?0:-1);
       break;
+    case 'AStar':
+      console.log("in astar switch")
+      result=AStar(grid,startCellofGrid,endCellofGrid);
+      count=(result.success?0:-1);
+      break;
     case 'DFS' :
       result=DFS(grid,startCellofGrid,endCellofGrid);
       count=-2;
@@ -453,7 +459,7 @@ const handleMaze = (maze)=>{
                 onClearAll={clearAll}
                 notClearWall={notClearWall}
         />
-        <div className="d-flex justify-content-end" style={{height: "2vw"}}>
+        <div className="d-flex justify-content-end" style={{height: "1vw"}}>
           <Alert key={alertText.text} alertText={alertText.text} type={alertText.type}/>
         </div>
         <div className= "container" style={{marginBottom: "10px"}}>
