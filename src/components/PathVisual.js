@@ -53,14 +53,10 @@ export default function PathVisual(props) {
 
   const handleMouseDown=(row,col)=>
       {
-        if(visualizeClicked) 
-        {
           if(visualizing)
-          setAlert({text:"Please wait, still finding path...",type:"warning"});
-          else 
-          setAlert({text:"Clear Grid First !!",type:"primary"});
-          return;
-        }
+          {setAlert({text:"Please wait, still finding path...",type:"warning"});
+             return;
+          }
         if(row===startCell.row && col===startCell.col)
          {
            setMousePressed('start');
@@ -78,7 +74,7 @@ export default function PathVisual(props) {
 
       const handleMouseEnter=(row,col)=>
       {
-        if(visualizeClicked) return;
+        if(visualizing) return;
         if(mousePressed==='')
           return
         if(mousePressed==='wall')
@@ -115,7 +111,7 @@ export default function PathVisual(props) {
 
   const handleMouseUp=(row,col)=>
       {
-        if(visualizeClicked) 
+        if(visualizing) 
         {
           return;
         }
@@ -146,13 +142,9 @@ export default function PathVisual(props) {
       }
   
 const onClickCell=(row,col)=>{
-  if(visualizeClicked) 
-    {
       if(visualizing)
-        setAlert({text:"Please wait, still finding path...",type:"warning"});
-      else 
-        setAlert({text:"Clear Grid First !!",type:"primary"});
-      return;
+        {setAlert({text:"Please wait, still finding path...",type:"warning"});
+          return;
         }
   if(grid[row][col].isStartCell || grid[row][col].isEndCell) return;
   const newGrid=getWalledGrid(grid,row,col);
@@ -361,6 +353,7 @@ const visualizeAlgo = async  (visitedCells,cellsOfShortestPath,speed,success,cou
             await rest(time);
             await animateShortestPath(cellsOfShortestPath,speed);
             setVisualizing(false);
+            setAlert({text:"",type:""});
             return;  
     }
         const cell = visitedCells[i];
@@ -413,6 +406,7 @@ const animateMaze = async (mazeCells)=>{
     await rest(15);
   }
   setVisualizing(false);
+  setAlert({text:"",type:""});
   grid[startCell.row][startCell.col+1].isWall=false;
   grid[endCell.row][endCell.col-1].isWall=false;
   document.getElementById(`cell-${startCell.row}-${startCell.col+1}`).className="cell";

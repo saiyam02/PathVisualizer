@@ -25,10 +25,10 @@ useEffect (()=>{
             <h5 className="modal-title text-white fw-bold" id="exampleModalLabel">Getting started with the Path Visualizer</h5>
             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div className="modal-body" style={{fontSize: "1.1vw"}} >
+          <div className="modal-body">
           <i style={{fontSize: "20px", color:"white"}} className='fas'>&#xf0a4;</i> Click and drag <i style={{fontSize: "24px"}} className='fas'>&#xf183;</i> to move start point. <br/><br/>
           <i style={{fontSize: "20px", color:"white"}} className='fas'>&#xf0a4;</i> Click and drag <i style={{fontSize: "24px",color: "red"}} className='fas'>&#xf3c5;</i> to move end point.<br/><br/>
-          <i style={{fontSize: "20px", color:"white"}} className='fas'>&#xf0a4;</i> Click and drag empty cells to add Walls.<br/>
+          <i style={{fontSize: "20px", color:"white"}} className='fas'>&#xf0a4;</i> Click and drag empty cells to add Walls.<br/><br/><br/>
           <div className='wallGif'>
             <img src={StartEndWall} alt ="Wall addition demo"></img>
           </div>
@@ -47,11 +47,11 @@ useEffect (()=>{
             <h5 className="modal-title text-white fw-bold" id="exampleModalLabel">Creating mazes and Speed control</h5>
             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div className="modal-body" style={{fontSize: "1.1vw"}} >
-          <p style={{textAlign: "left",color: "white",fontSize: "1.3vw" }} >To create maze</p>
+          <div className="modal-body" >
+          <p class="info-subhead" >To create maze</p>
           <i style={{fontSize: "20px", color:"white"}} className='fas'>&#xf0a4;</i> Select the maze algorithm you want to use and click the "add maze" button.
-          <p style={{textAlign: "left",color: "white",fontSize: "1.3vw" }} >Speed Control</p>
-          <i style={{fontSize: "20px", color:"white"}} className='fas'>&#xf0a4;</i>Visualize Algorithm at your desired speed by adjusting the speed control slider.
+          <p class="info-subhead">Speed Control</p>
+          <i style={{fontSize: "20px", color:"white"}} className='fas'>&#xf0a4;</i>Visualize Algorithm at your desired speed by adjusting the speed control slider.<br/><br/><br/>
           <div className='mazeAddGif'>
           <img src={mazeAdd} alt ="Maze addition demo"></img>
           </div>
@@ -71,11 +71,11 @@ useEffect (()=>{
             <h5 className="modal-title text-white fw-bold" id="exampleModalLabel">Creating mazes and Speed control</h5>
             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div className="modal-body" style={{fontSize: "1.1vw"}} >
-          <p style={{textAlign: "left",color: "white",fontSize: "1.3vw" }} >To visualize shortest path</p>
+          <div className="modal-body" >
+          <p class="info-subhead">To visualize shortest path</p>
           <i style={{fontSize: "20px", color:"white"}} className='fas'>&#xf0a4;</i> Select the desired path finding algorithm and click the "Visualize Algorithm" button.<p></p>
-          <p style={{textAlign: "left",color: "white",fontSize: "1.3vw" }} >To Remove walls or Clear grid</p>
-          <i style={{fontSize: "20px", color:"white"}} className='fas'>&#xf0a4;</i> Click remove walls or clear grid button .
+          <p className='info-subhead' >To Remove walls or Clear grid</p>
+          <i style={{fontSize: "20px", color:"white"}} className='fas'>&#xf0a4;</i> Click remove walls or clear grid button.<br/><br/><br/>
           <div className='visualizeGif'>
           <img src={visualizeGif} alt ="Maze addition demo"></img>
           </div>
@@ -95,7 +95,7 @@ useEffect (()=>{
             <h5 className="modal-title text-white fw-bold" id="exampleModalLabel">Overview of algorithms used</h5>
             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div className="modal-body" style={{fontSize: "1vw"}} >
+          <div className="modal-body" >
           <p className='info-subhead' >Dijkstra</p>
           Uses a formal approach (without heuristic). 
           It gaurantees the shortest path, but is slower than Greedy BFS.

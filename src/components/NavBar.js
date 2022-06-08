@@ -9,7 +9,6 @@ export default function NavBar(props) {
 
   const handleClick =()=>{
     const speed=document.getElementById("customRange1").value;
-    console.log(speed);
     if(props.visualizeClicked)
     {  
       props.notClearWall();

@@ -19,19 +19,19 @@ img{
 }
 
 .wallGif{
-    margin: 4vh 5vw ;
+    margin: auto;
     width: 20vw;
     height: 16vw;
 }
 
 .mazeAddGif{
-    margin: 4vh 3.5vw;
+    margin: auto;
     width: 23vw;
     height: 15vw;
 }
 
 .visualizeGif{
-    margin: 4vh 4vw;
+    margin: auto;
     width: 23vw;
     height: 15vw;
 }
@@ -42,3 +42,55 @@ img{
     font-size: 1.5vw; 
     margin-bottom: 1vh;
 }
+
+.modal-body{
+    font-size:  1.1vw;
+}
+
+
+@media only screen and (max-width: 1000px) and (min-width: 769) {
+    /* For mobile phones: */
+    [class*="modal-body"] {
+      font-size: 2vw;
+    }
+    [class*="info-subhead"] {
+        font-size: 6vw;
+    }
+    [class*="wallGif"] {
+        width: 40vw;
+        height: 12vh;
+    }
+    [class*="mazeAddGif"] {
+        width: 40vw;
+        height: 12vh;
+    }
+    [class*="visualizeGif"] {
+        width: 40vw;
+        height: 12vh;
+    }
+  }
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*="modal-body"] {
+      font-size: 4vw;
+    }
+    [class*="info-subhead"] {
+        font-size: 6vw;
+    }
+    [class*="wallGif"] {
+        width: 40vw;
+        height: 12vh;
+    }
+    [class*="mazeAddGif"] {
+        width: 40vw;
+        height: 12vh;
+    }
+    [class*="visualizeGif"] {
+        width: 40vw;
+        height: 12vh;
+    }
+  }
+
+
+  

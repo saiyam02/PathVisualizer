@@ -51,3 +51,15 @@
     width: 2vw;
     background: #525252;
 }
+
+@media only screen and (max-width: 768px) {
+    [class*=label]{
+        font-size: 2vw;
+    }
+}
+
+@media only screen and (max-width: 1000px) and (min-width: 769px) {
+    [class*=label]{
+        font-size: 1.5vw;
+    }
+}
