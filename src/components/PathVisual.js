@@ -353,7 +353,7 @@ const visualizeAlgo = async  (visitedCells,cellsOfShortestPath,speed,success,cou
             await rest(time);
             await animateShortestPath(cellsOfShortestPath,speed);
             setVisualizing(false);
-            setAlert({text:"",type:""});
+            if(success)setAlert({text:"",type:""});
             return;  
     }
         const cell = visitedCells[i];
