@@ -1,5 +1,14 @@
 # Welcome to Path Visualizer
-
+The purpose of this project is to create a web based educational tool to visualize shortest path algorithms.
+In path visualizer project I implemented - 
+Dijkstra
+Greedy - BFS (Best First Search)
+A* (A-Star)
+DFS (Depth-Fist-Search)
+BFS (Breadth-First-Search)
+algorithms for path finding and Recursive Division (for maze generation).
+It also keeps track of how many steps(nodes in this case) certain algorithm takes to find a path to the destination, and how many nodes make up the path.It offers users to also cotrol speed, change start and end point and add obstacles to check working of algorithms in different scenario.
+Tech stack used - HTML, CSS, Bootstrap, ReactJS   
 
 # Access site at
 https://saiyam02.github.io/PathVisualizer
