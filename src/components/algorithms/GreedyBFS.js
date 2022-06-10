@@ -1,12 +1,12 @@
 export function GreedyBFS(grid,startCellofGrid,endCellofGrid){
-    const sortedHeuristic=[];
-    const visitedCells=[];
+    let sortedHeuristic=[];
+    let visitedCells=[];
     sortedHeuristic.push(startCellofGrid);
     while (sortedHeuristic.length){
         let currentCell = sortedHeuristic.shift();
         visitedCells.push(currentCell);
         currentCell.isVisited=true;
-        updateSortedHeuristic(grid,currentCell,endCellofGrid,sortedHeuristic); 
+        updateSortedHeuristic(grid,currentCell,endCellofGrid,sortedHeuristic,visitedCells); 
         if(sortedHeuristic.length===0){
         return {visitedCells: visitedCells, success: false};// will find neighbour, add to sorted heuristic nd sort
         }
@@ -17,10 +17,11 @@ export function GreedyBFS(grid,startCellofGrid,endCellofGrid){
     }
 }
 
-function updateSortedHeuristic(grid,currentCell,endCellofGrid,sortedHeuristic){
+function updateSortedHeuristic(grid,currentCell,endCellofGrid,sortedHeuristic,visitedCells){
     let unvisitedNeighbours = getNeighbours(grid,currentCell);
     for (const neighbour of unvisitedNeighbours) {
         if(sortedHeuristic.some(el=> el.row===neighbour.row && el.col ===neighbour.col )) continue;
+        if(visitedCells.some(el=> el.row===neighbour.row && el.col ===neighbour.col )) continue;
         let x = Math.abs(neighbour.row-endCellofGrid.row);
         let y = Math.abs(neighbour.col-endCellofGrid.col);
         neighbour.previousCell=currentCell;

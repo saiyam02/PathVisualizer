@@ -23,13 +23,15 @@ function upadateSoretdFvalue(grid,currentCell,startCellofGrid,endCellofGrid,sort
     let unvisitedNeighbours = getNeighbours(grid,currentCell);
     let neighbours = [];
     for (const neighbour of unvisitedNeighbours) {
-        if(sortedFvalue.some(el=> el.row===neighbour.row && el.col ===neighbour.col )) continue;
+        if(sortedFvalue.some(el=> el.row===neighbour.row && el.col ===neighbour.col )) {
+            continue;
+        }
         let gx = Math.abs(neighbour.row-startCellofGrid.row);
         let gy = Math.abs(neighbour.col-startCellofGrid.col);
         let hx = Math.abs(neighbour.row-endCellofGrid.row);
         let hy = Math.abs(neighbour.col-endCellofGrid.col);
         neighbour.previousCell=currentCell;
-        neighbour.distance =  gx+gy+hx+hy;
+        neighbour.distance =  gx+gy+hx+hy+hx*.01; // scaling up h by .01 so that as get closer to target h decreases and so the f
         neighbour.h=hx+hy;  // f_value = g_value + h_value
         neighbours.push(neighbour);
         sortedFvalue.push(neighbour);
@@ -55,10 +57,6 @@ function getNeighbours(grid,cell){
 // sorts by fvalue and if two same fvalue then selects the one with less h value (closer to endcell)
 function sortCellsByDistance(array){
     array.sort((cell1, cell2) =>{
-        if(cell1.distance === cell2.distance)
-        {
-            return cell1.h-cell2.h;
-        }
         return cell1.distance-cell2.distance;
     });
   }
