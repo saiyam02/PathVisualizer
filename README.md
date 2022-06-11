@@ -7,7 +7,7 @@ A* (A-Star),
 DFS (Depth-Fist-Search) and
 BFS (Breadth-First-Search)
 algorithms for path finding and Recursive Division (for maze generation).
-It also keeps track of how many steps(nodes in this case) certain algorithm takes to find a path to the destination, and how many nodes make up the path.It offers users to also cotrol speed, change start and end point and add obstacles to check working of algorithms in different scenario.
+It also keeps track of how many steps(nodes in this case) certain algorithm takes to find a path to the destination, and how many nodes make up the path.It offers users to also control speed, change start and end point and add obstacles to check working of algorithms in different scenario.
 Tech stack used - HTML, CSS, Bootstrap, ReactJS   
 
 # Access site at
